@@ -142,7 +142,6 @@ Examples:
 - maximum length
 - programming language
 - coding standards
-- formatting
 - libraries
 - security requirements
 
@@ -203,7 +202,7 @@ One surprising fact about modern AI applications is that **your prompt is rarely
 A typical request may look more like this.
 
 ```text
-System Instructions
+System Prompt
         │
 Conversation History
         │
@@ -226,9 +225,46 @@ This explains why different applications can produce different answers using the
 
 ---
 
+# What Is a System Prompt?
+
+Every AI conversation starts with instructions that are usually invisible to the user.
+
+These instructions are called the **system prompt**.
+
+Think of it as configuration rather than conversation.
+
+A system prompt defines how the assistant should generally behave before it ever sees your first message.
+
+For example, a system prompt might contain instructions such as:
+
+- You are a helpful software engineering assistant.
+- Prefer Markdown for formatted output.
+- Explain concepts before giving code.
+- Do not generate unsafe code.
+- Be concise unless the user requests more detail.
+
+Applications often generate these prompts automatically.
+
+For example:
+
+- ChatGPT uses system prompts to define the behaviour of the assistant.
+- GitHub Copilot uses system prompts optimized for software development tasks.
+- Open WebUI allows you to create assistants with your own custom system prompts.
+- AI agents often generate system prompts dynamically depending on the task they are performing.
+
+As an end user, you usually write only the **user prompt**.
+
+The application combines your prompt with its own hidden instructions before sending everything to the model.
+
+> **Developer Note**
+>
+> When building your own AI applications, you'll often spend more time designing good **system prompts** than writing individual user prompts. A well-designed system prompt can improve every interaction that follows.
+
+---
+
 # Prompting vs Context Engineering
 
-By now we've encountered two related concepts.
+By now we've encountered two closely related concepts.
 
 **Prompting**
 
@@ -250,13 +286,13 @@ Professional AI systems optimize both.
 
 # Prompt Patterns
 
-Over time, developers have discovered several prompt patterns that work remarkably well.
+Over time, developers have discovered several prompt patterns that consistently produce better results.
 
-We'll revisit these throughout the handbook.
+Many professional AI applications combine several of these patterns automatically.
 
 ---
 
-## Role
+## Role Prompting
 
 Tell the model who it should act as.
 
@@ -268,30 +304,35 @@ This helps establish the perspective from which the response should be written.
 
 ---
 
-## Task
+## Task Prompting
 
 Describe exactly what should be accomplished.
 
 Example:
 
-> Review this PowerShell script for security issues.
+> Review this PowerShell script for potential security issues.
+
+The more precise the task, the fewer assumptions the model must make.
 
 ---
 
-## Constraints
+## Constraint Prompting
 
-Limit the solution space.
+Reduce ambiguity by defining boundaries.
 
-Example:
+Examples:
 
-- Target .NET 10
-- Use xUnit
-- Avoid third-party libraries
-- Maximum 300 words
+- Target .NET 10.
+- Use xUnit.
+- Avoid third-party libraries.
+- Maximum 300 words.
+- Assume Windows 11.
+
+Constraints narrow the solution space and often produce more consistent results.
 
 ---
 
-## Output Format
+## Output Format Prompting
 
 Tell the AI how the result should be structured.
 
@@ -310,13 +351,49 @@ It often saves more time than refining the task itself.
 
 ---
 
-# Few-Shot Prompting
+## Example-Based Prompting
 
-Sometimes examples are more effective than explanations.
+Sometimes explaining the desired result is less effective than showing it.
 
-Suppose you want commit messages in a specific style.
+This family of prompting techniques differs only in the number of examples provided.
 
-Instead of describing the format, simply provide two or three examples.
+### Zero-Shot Prompting
+
+You simply ask the model to perform a task without providing any examples.
+
+Example:
+
+> Explain dependency injection for a junior .NET developer.
+
+The model relies entirely on its existing knowledge.
+
+---
+
+### One-Shot Prompting
+
+You provide a single example before asking the model to continue.
+
+Example:
+
+```text
+Input:
+Customer
+
+Output:
+Entity
+
+Now classify:
+
+Invoice
+```
+
+The single example demonstrates the expected pattern.
+
+---
+
+### Few-Shot Prompting
+
+You provide several examples.
 
 ```text
 Example 1
@@ -327,12 +404,16 @@ Example 2
 
 feat(api): add customer search endpoint
 
+Example 3
+
+docs(readme): explain installation
+
 Now generate another commit message.
 ```
 
-The model learns the pattern from the examples.
+Rather than following written instructions, the model infers the pattern from the examples.
 
-This technique is called **few-shot prompting** because only a few examples are needed.
+Few-shot prompting is particularly useful when formatting or consistency is important.
 
 ---
 
@@ -370,6 +451,12 @@ Repeat
 
 This iterative approach often produces dramatically better results than trying to write the "perfect prompt" immediately.
 
+Think of prompts as source code.
+
+You don't expect to write perfect code on the first attempt.
+
+Prompting follows the same engineering mindset.
+
 ---
 
 # Your Future AI Assistant
@@ -391,7 +478,13 @@ will automatically construct large parts of the prompt for you.
 
 Their job is not only to call the model.
 
-Their job is to prepare an excellent prompt.
+Their job is to prepare an excellent prompt by combining:
+
+- system prompts
+- project context
+- source code
+- tool outputs
+- your request
 
 Understanding prompt engineering therefore helps you evaluate AI tools as well.
 
@@ -399,26 +492,57 @@ When one tool consistently produces better answers than another, the difference 
 
 ---
 
-# Prompting Is Not the End Goal
+# A Brief Historical Perspective
 
-Many online tutorials focus heavily on "prompt engineering."
+Around 2023–2024, **Prompt Engineering** became one of the best-known AI skills.
 
-That can give the impression that becoming good at AI means becoming good at writing prompts.
+At that time, interacting with AI primarily meant learning how to ask better questions.
 
-That was largely true in the early days of ChatGPT.
+As AI systems became more capable, the focus gradually shifted.
 
-Today, the field is evolving.
+Today, experienced AI developers increasingly talk about:
 
-Increasingly, AI applications generate prompts automatically.
+- Context Engineering
+- Tool Integration
+- Memory
+- Agent Design
+- Workflow Automation
 
-Developers spend less time crafting individual prompts and more time designing systems that provide:
+Prompting remains an important skill, but it is now viewed as one component of a much larger system.
 
-- good context
-- useful tools
-- structured workflows
-- reliable memory
+A well-written prompt is valuable.
 
-Prompting remains important—but it is gradually becoming one component within a much larger discipline.
+A well-designed AI system is even more valuable.
+
+---
+
+# Looking Ahead
+
+Earlier in this handbook, you learned about context windows and token limits.
+
+These are not just theoretical concepts.
+
+As developers, we need strategies to work within these constraints efficiently.
+
+Questions such as these naturally arise:
+
+- How do I avoid filling the context window with irrelevant information?
+- How do I preserve important decisions over long conversations?
+- How can an AI continue working after its context window is full?
+- Why does GitHub Copilot often seem to "remember" my project?
+- How can I build a local assistant that behaves similarly?
+
+These questions belong to the discipline of **Context Engineering**.
+
+In Part II, we'll learn practical techniques such as:
+
+- maintaining rolling summaries
+- externalizing memory into files
+- retrieving only relevant information (RAG)
+- structuring long-running AI workflows
+- building assistants that combine temporary context with persistent knowledge
+
+You'll discover that managing context effectively is often more important than choosing a larger model.
 
 ---
 
@@ -427,22 +551,24 @@ Prompting remains important—but it is gradually becoming one component within 
 | Term | Meaning |
 |------|---------|
 | Prompt | Instructions intentionally provided to the model. |
+| User Prompt | The prompt written by the user. |
+| System Prompt | Hidden instructions supplied by the application before the user's prompt. |
 | Prompt Engineering | Designing prompts to improve model behaviour. |
-| Few-Shot Prompting | Teaching by providing a small number of examples. |
-| Zero-Shot Prompting | Asking the model without examples. |
-| System Prompt | Hidden instructions supplied by the application. |
+| Zero-Shot Prompting | Asking the model to perform a task without providing examples. |
+| One-Shot Prompting | Providing one example before asking the model to continue. |
+| Few-Shot Prompting | Providing several examples from which the model infers the desired pattern. |
 
-As AI systems continue to evolve, you'll increasingly encounter a newer term:
+As AI systems continue to evolve, you'll increasingly encounter another term:
 
 > **Context Engineering**
 
-Many practitioners now consider context engineering to be a broader and more important discipline than prompt engineering alone.
+Many practitioners now consider context engineering to be the broader discipline, with prompt engineering being one of its tools.
 
 ---
 
 # Developer's Decision
 
-As a software developer, don't think of prompting as "asking better questions."
+As a software developer, don't think of prompting as **asking better questions**.
 
 Think of it as **writing better specifications**.
 
@@ -450,15 +576,18 @@ Every prompt is an interface between you and the model.
 
 The clearer that interface is, the fewer assumptions the model must make.
 
-And just like good software architecture, the best prompts are usually:
+As your AI systems become more sophisticated, you'll notice a gradual shift in your work.
 
-- explicit
-- structured
-- testable
-- repeatable
-- easy to improve over time
+Instead of spending most of your time writing prompts, you'll spend more time designing systems that provide:
 
-In the next chapter, we'll leave the theoretical world behind and begin assembling our first practical AI workstation.
+- the right context,
+- the right tools,
+- the right memory,
+- and the right constraints.
+
+That transition—from writing prompts to engineering AI systems—marks the point where AI becomes another discipline within software architecture.
+
+In the next chapter, we'll leave theory behind and begin assembling our first practical AI workstation.
 
 We'll answer questions such as:
 
