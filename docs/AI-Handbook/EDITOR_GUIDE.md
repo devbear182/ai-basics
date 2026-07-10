@@ -1,82 +1,18 @@
-# AI Basics Handbook – Editor Guide
+# Editorial Guidelines
 
-## Purpose
+## Golden Rule
 
-This document serves as the long-term editorial guide for the handbook.
+Every chapter must solve one concrete problem.
 
-It is intended for both human editors and AI assistants contributing to the project.
+Never introduce concepts because they exist.
 
-The goal is to ensure consistency across all chapters, even when they are written in different sessions or by different contributors.
-
----
-
-# Target Audience
-
-Primary audience:
-
-- Windows-focused junior software developers
-- Some professional software development experience
-- Little or no AI experience
-- Interested in adopting AI for daily software development
-
-Typical reader questions:
-
-- What do all these AI terms mean?
-- How do ChatGPT, Copilot and Ollama relate?
-- How can I build my own local AI assistant?
-- Which concepts do I need today?
-- Which topics can wait until later?
-
-The reader is assumed to have:
-
-- basic programming knowledge
-- basic Git knowledge
-- basic command line experience
-
-The reader is **not** assumed to know:
-
-- machine learning
-- statistics
-- neural networks
-- data science
-- mathematics behind transformers
-
----
-
-# Teaching Philosophy
-
-The handbook follows one central principle:
-
-> Build understanding before building systems.
-
-Every chapter should answer three questions:
-
-1. What is it?
-2. Why does it exist?
-3. Where does it fit?
-
-Only afterwards explain:
-
-4. How does it work?
-
-Whenever possible, postpone mathematical details until they become practically relevant.
-
----
-
-# Learning Philosophy
-
-Readers should gain enough understanding to:
-
-- recognize terminology
-- search for additional information
-- evaluate AI products
-- make informed architectural decisions
-
-The handbook is **not** intended to replace academic textbooks.
+Introduce them because the reader now needs them.
 
 ---
 
 # Writing Style
+
+Write like an experienced software engineer mentoring another developer.
 
 Prefer:
 
@@ -95,147 +31,136 @@ Avoid:
 
 ---
 
-# Recurring Chapter Structure
+# Educational Style
 
-Whenever appropriate, chapters follow this structure:
+Use progressive learning.
 
-1. Motivation
-2. Definition
-3. Mental Model
-4. Software Engineering Analogy
-5. Practical Examples
-6. Search Vocabulary
-7. Developer's Decision
+Each chapter builds directly on previous chapters.
 
-Not every chapter must contain every section.
+Readers should continuously feel that they are leveling up.
+
+Do not repeat previous chapters unless reinforcing an important concept from a new perspective.
 
 ---
 
-# Recurring Themes
+# Preferred Teaching Order
 
-The following ideas should appear throughout the handbook.
+Whenever introducing a new concept:
 
-## "Where does it fit?"
-
-Every concept should be positioned inside the larger AI ecosystem.
-
----
-
-## Build Mental Models
-
-The goal is understanding.
-
-Readers should leave a chapter thinking:
-
-> "Now I understand why this exists."
+1. Present the problem.
+2. Explain why existing approaches are insufficient.
+3. Introduce the concept.
+4. Explain where it fits in the architecture.
+5. Demonstrate it with practical examples.
+6. Highlight common beginner mistakes.
+7. Present engineering best practices.
+8. Transition naturally to the next problem.
 
 ---
 
-## Build Vocabulary
+# Software Engineering Analogies
 
-Every important technical term should be introduced before being used extensively.
+Whenever helpful, relate AI concepts to familiar software engineering concepts.
 
-Definitions should be sufficient for productive web searches.
+Examples include:
 
----
+* Runtime
+* Compiler
+* Framework
+* Library
+* Function
+* Service
+* Architecture
+* Dependency Injection
+* Layers
+* Design Patterns
 
-## Progressive Learning
-
-Avoid deep dives before they become useful.
-
-Example:
-
-Explain quantization.
-
-Do **not** explain quantization mathematics.
-
----
-
-## Engineering Perspective
-
-Always explain concepts from the perspective of someone building software.
-
-Not from the perspective of an AI researcher.
+Analogies should simplify concepts rather than oversimplify them.
 
 ---
 
-# Diagram Philosophy
+# Practical Focus
 
-Prefer simple ASCII diagrams.
+Favor examples involving everyday software development.
 
-Example:
+Examples:
 
-```text
-User
- │
- ▼
-Application
- │
- ▼
-Model
-```
+* code reviews
+* debugging
+* documentation
+* architecture discussions
+* testing
+* refactoring
+* onboarding
+* repository exploration
 
-Diagrams should explain relationships rather than implementation details.
-
----
-
-# Analogies
-
-Prefer analogies from:
-
-- software engineering
-- Git
-- databases
-- operating systems
-- computer networking
-- software architecture
-
-Occasionally use:
-
-- whiteboards
-- libraries
-- offices
-- meetings
-
-Avoid analogies requiring specialist knowledge outside software engineering.
+Readers should regularly recognize situations from their own work.
 
 ---
 
-# Icons
+# Chapter Structure
 
-Use icons very sparingly.
+Preferred chapter structure:
 
-Good uses:
+* Brief recap
+* Introduce a realistic problem
+* Theory
+* Practical application
+* Common Beginner Mistake
+* Engineering Note
+* Looking Ahead
+* Search Vocabulary
+* 🎉 Level Up!
+* Next Level
 
-💡 Idea
+---
 
-⚠️ Warning
+# Search Vocabulary
 
-Avoid decorative emoji.
+Every important technical term should be explained once in the handbook and then summarized in the glossary.
+
+Glossary entries should follow:
+
+Definition
+
+Compare to (optional)
+
+Example
+
+The glossary is intended as a quick reference.
 
 ---
 
 # Terminology
 
-Prefer consistent terminology throughout the handbook.
+Use terminology consistently throughout the handbook.
 
-Example:
+Prefer:
 
-- Model
-- Runtime
-- Application
-- Platform
+* Foundation Model
+* Large Language Model (LLM)
+* Model
+* Runtime
+* Application
+* Platform
+* Context
+* Context Window
+* Prompt
+* System Prompt
+* Skill
+* Agent
+* Tool
+* Memory
+* Retrieval
+* RAG
+* MCP
 
-Avoid switching between synonyms unless explaining them.
+Avoid inventing alternative names for established concepts.
 
 ---
 
-# End-of-Chapter Rule
+# Editorial Objective
 
-Whenever possible, end a chapter by connecting it to the next one.
+The reader should finish the handbook with the confidence to independently evaluate new AI technologies, build practical AI-assisted workflows and continue learning beyond the handbook itself.
 
-Readers should naturally think:
-
-> "Now I want to know what comes next."
-
-The handbook should feel like one continuous journey rather than isolated articles.
+The handbook teaches a way of thinking—not a fixed collection of tools.
