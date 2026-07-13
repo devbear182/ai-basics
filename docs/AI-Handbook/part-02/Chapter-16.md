@@ -323,6 +323,23 @@ It is not a substitute for sound engineering discipline.
 
 ---
 
+# Behind the Scenes
+
+An IDE extension usually does far more than simply display a chat window.
+
+Before your question reaches the model, it may automatically collect:
+
+- the currently opened file,
+- selected text,
+- neighbouring files,
+- diagnostics,
+- Git information,
+- workspace metadata.
+
+Most of the "magic" developers experience with IDE assistants comes from this automatic context gathering rather than from a fundamentally different language model.
+
+---
+
 # Looking Ahead
 
 By now, your AI has become a capable development companion.
@@ -390,6 +407,24 @@ AI assistance that automatically considers relevant information—such as the cu
 **Example**
 
 Explaining a method while also considering the interfaces and classes it depends on.
+
+---
+
+# Try It Yourself
+
+Open an unfamiliar class in your project.
+
+Ask your AI:
+
+> Explain this class to someone joining the project today.
+
+Now highlight only one method and ask:
+
+> Explain this method.
+
+Compare the two answers.
+
+Notice how selecting different context changes the quality and focus of the response.
 
 ---
 

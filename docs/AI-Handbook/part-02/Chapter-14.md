@@ -245,6 +245,84 @@ Different kinds of knowledge belong in different places.
 
 Trying to solve everything with one giant instruction file quickly becomes unmanageable.
 
+# Instruction Scope and Inheritance
+
+If you've worked with .NET before, you may already know a very similar concept.
+
+Consider `NuGet.Config`.
+
+A NuGet configuration file can exist at different levels:
+
+```
+Machine
+
+↓
+
+User
+
+↓
+
+Repository
+
+↓
+
+Project
+```
+
+When NuGet restores packages, it doesn't use just one configuration file.
+
+Instead, it combines the applicable configurations according to their scope.
+
+Many AI applications follow a very similar idea with instruction files.
+
+For example:
+
+```
+C:\Users\Chris\
+    instructions.md
+```
+
+```
+Repositories\
+    FinanceApp\
+        instructions.md
+```
+
+```
+Repositories\
+    FinanceApp\
+        TaxModule\
+            instructions.md
+```
+
+When working inside `TaxModule`, the AI may inherit instructions from all three locations.
+
+Conceptually, this becomes something like:
+
+```
+User Instructions
+
++
+
+Repository Instructions
+
++
+
+Module Instructions
+
+↓
+
+Combined Instructions
+```
+
+This allows you to keep general preferences in one place while adding increasingly specific guidance where it is needed.
+
+You don't repeat yourself.
+
+You specialise.
+
+This is another example of a familiar software engineering principle appearing in AI systems.
+
 ---
 
 # Common Beginner Mistake
@@ -313,6 +391,25 @@ The next chapter introduces the first capability that truly transforms your assi
 
 ---
 
+# Behind the Scenes
+
+Although we've been talking about `instructions.md`, the model itself never reads Markdown files.
+
+Before your request is sent, the AI application typically:
+
+1. discovers applicable instruction files,
+2. combines them according to their scope,
+3. merges them with its own built-in instructions,
+4. constructs a **system prompt**.
+
+Only this final prompt is sent to the model.
+
+The foundation model has no concept of `instructions.md`.
+
+Those files exist to make instructions easier for humans to organise, version and maintain.
+
+---
+
 # Search Vocabulary
 
 ### Instructions
@@ -355,6 +452,40 @@ Just as application settings, source code and documentation belong in different 
 
 ---
 
+# Try It Yourself
+
+Create your first project-level instruction file.
+
+```
+MyProject/
+
+    instructions.md
+
+    src/
+
+    README.md
+```
+
+Start with only three simple rules.
+
+```markdown
+# Project Instructions
+
+- Prefer C# examples.
+- Explain architectural decisions before suggesting code.
+- Never recommend additional dependencies without explaining why.
+```
+
+Now ask your AI to explain a class.
+
+Next, temporarily rename `instructions.md` and ask exactly the same question again.
+
+Compare both answers.
+
+Congratulations—you've just customised your AI assistant without changing the model itself.
+
+---
+
 # 🎉 Level Up!
 
 You've taken the first step from *using* AI to *teaching* AI.
@@ -366,6 +497,7 @@ You can now distinguish between:
 - and task-specific prompts.
 
 More importantly, you've learned that improving an AI assistant often means improving its surrounding knowledge—not replacing the model itself.
+
 
 ### Next Level
 

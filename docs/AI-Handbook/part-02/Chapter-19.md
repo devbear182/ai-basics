@@ -354,6 +354,18 @@ In many cases, deciding **what not to remember** is just as important as decidin
 
 ---
 
+# Behind the Scenes
+
+Memory does not usually live inside the model.
+
+Instead, the AI application stores information separately.
+
+When appropriate, selected memories are retrieved and inserted into the current conversation.
+
+To the model, remembered information looks exactly like newly provided context.
+
+---
+
 # Looking Ahead
 
 So far, you've manually decided what information the AI receives.
@@ -427,6 +439,27 @@ A structured collection of reusable information that both humans and AI systems 
 **Example**
 
 Internal documentation describing company architecture and development practices.
+
+---
+
+# Try It Yourself
+
+Create a small Markdown file called:
+
+```
+my-preferences.md
+```
+
+Write down:
+
+- preferred language,
+- preferred testing framework,
+- naming conventions,
+- coding style.
+
+Whenever you start a new AI conversation, provide this file as additional context.
+
+Observe how much less you need to repeat yourself.
 
 ---
 

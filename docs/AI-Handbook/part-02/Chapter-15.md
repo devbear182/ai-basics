@@ -334,6 +334,46 @@ In the next chapter, you'll integrate your local AI into Visual Studio Code and 
 
 ---
 
+# Behind the Scenes
+
+When you ask an AI to explain a class, the model itself cannot open files.
+
+Instead, the AI application calls a **tool** on the model's behalf.
+
+A simplified workflow looks like this:
+
+```
+Developer
+
+↓
+
+Language Model
+
+↓
+
+Read File Tool
+
+↓
+
+Repository
+
+↓
+
+Language Model
+
+↓
+
+Answer
+```
+
+The model decides *what* information it needs.
+
+The tool retrieves it.
+
+The model then reasons over the returned information.
+
+---
+
 # Search Vocabulary
 
 ### Tool
@@ -377,6 +417,22 @@ Similar to the documents and source code a developer has open while working on a
 **Example**
 
 Repository files, project documentation and the current conversation together form the AI's context.
+
+---
+
+# Try It Yourself
+
+Open a repository that contains several related classes.
+
+Instead of selecting only one file, ask:
+
+> Explain how this feature works from end to end.
+
+Observe which additional files your AI retrieves.
+
+Then compare this with manually pasting a single source file.
+
+Notice how dramatically the explanation improves when the AI has access to broader project context.
 
 ---
 

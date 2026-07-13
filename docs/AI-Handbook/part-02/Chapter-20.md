@@ -362,6 +362,20 @@ This layered approach makes AI systems easier to understand, extend and maintain
 
 ---
 
+# Behind the Scenes
+
+One common misconception is that RAG modifies the model.
+
+It doesn't.
+
+The retrieval system runs **before** the model starts generating a response.
+
+Only the retrieved documents are added to the prompt.
+
+From the model's perspective, they simply become part of the current conversation.
+
+---
+
 # Looking Ahead
 
 RAG explains **how** an AI finds relevant information.
@@ -441,6 +455,20 @@ Unlike traditional keyword search, semantic search can find documents discussing
 **Example**
 
 Finding a document about "authentication failures" when searching for "login problems."
+
+---
+
+# Try It Yourself
+
+Take an existing project.
+
+Create two Markdown files describing different subsystems.
+
+Now ask questions that can only be answered using those documents.
+
+Compare the answers with and without providing the documentation.
+
+You'll quickly see that high-quality documentation significantly improves AI assistance.
 
 ---
 

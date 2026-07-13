@@ -400,6 +400,38 @@ Design your Agent's permissions according to the consequences of failure.
 
 ---
 
+# Behind the Scenes
+
+Although Agents often appear highly autonomous, they usually operate in a simple loop:
+
+```
+Plan
+
+↓
+
+Select Tool
+
+↓
+
+Execute
+
+↓
+
+Observe Result
+
+↓
+
+Update Plan
+
+↓
+
+Repeat
+```
+
+Many agent frameworks differ mainly in how they implement this loop—not in the underlying language model itself.
+
+---
+
 # Looking Ahead
 
 Your Agent can now coordinate work across multiple Skills and tools.
@@ -476,6 +508,22 @@ Technical or procedural safeguards that limit what an AI system is allowed to do
 **Example**
 
 Requiring approval before modifying files or restricting access to specific directories.
+
+---
+
+# Try It Yourself
+
+Choose a small development task.
+
+For example:
+
+> Investigate why this unit test fails.
+
+Before asking the AI, write down the steps you would personally perform.
+
+Then compare them with the Agent's approach.
+
+Notice that successful Agents often behave surprisingly similarly to experienced developers.
 
 ---
 

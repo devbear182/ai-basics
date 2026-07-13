@@ -359,6 +359,16 @@ The same architectural principles you've applied for years now appear again in A
 
 ---
 
+# Behind the Scenes
+
+You will rarely interact with embeddings directly.
+
+Instead, frameworks generate and compare them automatically.
+
+As an application developer, your main responsibility is usually deciding **what** should become searchable—not how embeddings are mathematically calculated.
+
+---
+
 # Looking Ahead
 
 By now, your AI assistant can:
@@ -451,6 +461,28 @@ In AI, vectors are commonly used to represent the meaning of text as embeddings.
 **Example**
 
 Two documents with similar vectors are likely to discuss similar topics.
+
+---
+
+# Try It Yourself
+
+Take two Markdown documents.
+
+Rename one from:
+
+```
+Customer Management
+```
+
+to
+
+```
+Client Administration
+```
+
+Even though the wording changed, a semantic search should still retrieve the correct document.
+
+This illustrates why embeddings compare meaning rather than exact words.
 
 ---
 

@@ -337,6 +337,23 @@ Keeping those responsibilities separate makes your AI system much easier to main
 
 ---
 
+# Behind the Scenes
+
+Most AI applications don't treat Skills as something fundamentally different from prompts.
+
+Internally, a Skill is often assembled into a larger prompt that also contains:
+
+- system instructions,
+- project instructions,
+- retrieved documentation,
+- your current request.
+
+The Skill simply provides a reusable section of that overall prompt.
+
+This is why well-designed Skills remain relatively small and focused.
+
+---
+
 # Looking Ahead
 
 Your AI can now perform recurring tasks consistently.
@@ -400,6 +417,31 @@ Just as a class should not perform unrelated tasks, a Skill should focus on solv
 **Example**
 
 A Skill that only generates unit tests is easier to maintain than one that attempts to review code, write documentation and optimise performance simultaneously.
+
+---
+
+# Try It Yourself
+
+Create your first Skill.
+
+Keep it intentionally small.
+
+Name:
+
+```
+Explain Legacy Code
+```
+
+Purpose:
+
+- summarise the code,
+- identify responsibilities,
+- explain important design decisions,
+- point out possible risks.
+
+Use this Skill on three different classes.
+
+Notice that although the source code changes, your workflow remains consistent.
 
 ---
 
