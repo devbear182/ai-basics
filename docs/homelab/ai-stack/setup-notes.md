@@ -12,7 +12,7 @@ Lokale KI-Umgebung auf einem privaten Linux-PC für:
 
 ---
 
-# Hardware
+## Hardware
 
 CPU:
 
@@ -44,7 +44,7 @@ Freier Speicher ausreichend
 
 ---
 
-# Betriebssystem
+## Betriebssystem
 
 Distribution:
 
@@ -66,7 +66,7 @@ Kernel:
 
 ---
 
-# Aktuelle Architektur
+## Aktuelle Architektur
 
 ```
 Linux Mint Host
@@ -85,9 +85,9 @@ Linux Mint Host
 
 ---
 
-# 1. Ollama Installation
+## 1. Ollama Installation
 
-## Installation
+### Installation
 
 Ollama wurde als nativer Linux-Service installiert.
 
@@ -122,7 +122,7 @@ Active: active (running)
 
 ---
 
-## Netzwerk
+### Netzwerk
 
 Aktueller Zustand:
 
@@ -144,7 +144,7 @@ Bedeutung:
 
 ---
 
-# 2. Modell Installation
+## 2. Modell Installation
 
 Installiertes Modell:
 
@@ -194,9 +194,9 @@ Context:
 
 ---
 
-# 3. Docker Installation
+## 3. Docker Installation
 
-## Installation
+### Installation
 
 Docker Engine wurde installiert.
 
@@ -210,7 +210,7 @@ Grund:
 
 ---
 
-## Prüfung
+### Prüfung
 
 ```bash
 sudo docker run hello-world
@@ -225,9 +225,9 @@ This message shows that your installation appears to be working correctly.
 
 ---
 
-# 4. Open WebUI Installation
+## 4. Open WebUI Installation
 
-## Container Start
+### Container Start
 
 Aktueller Container:
 
@@ -243,9 +243,9 @@ sudo docker run -d \
 
 ---
 
-# Begründung der nicht standardmäßigen Einstellungen
+## Begründung der nicht standardmäßigen Einstellungen
 
-## Docker Netzwerk
+### Docker Netzwerk
 
 Verwendet:
 
@@ -271,7 +271,7 @@ Diese Variante wurde bewusst nicht verwendet.
 
 ---
 
-## Ollama Verbindung
+### Ollama Verbindung
 
 Verwendet:
 
@@ -309,7 +309,7 @@ korrekt.
 
 ---
 
-## Open WebUI Port
+### Open WebUI Port
 
 Kein Port Mapping:
 
@@ -337,7 +337,7 @@ http://localhost:8080
 
 ---
 
-## Restart Policy
+### Restart Policy
 
 Verwendet:
 
@@ -353,7 +353,7 @@ Bedeutung:
 
 ---
 
-## Persistente Daten
+### Persistente Daten
 
 Verwendet:
 
@@ -373,7 +373,7 @@ Das Löschen des Containers entfernt diese Daten nicht.
 
 ---
 
-# Open WebUI Benutzerverwaltung
+## Open WebUI Benutzerverwaltung
 
 Aktueller Modus:
 
@@ -399,7 +399,7 @@ Vorteile:
 
 ---
 
-# Aktuelle URLs
+## Aktuelle URLs
 
 Open WebUI:
 
@@ -415,9 +415,9 @@ http://127.0.0.1:11434
 
 ---
 
-# Verifikation
+## Verifikation
 
-## Ollama
+### Ollama
 
 ```bash
 ollama list
@@ -431,7 +431,7 @@ qwen2.5:7b
 
 ---
 
-## Ollama API
+### Ollama API
 
 ```bash
 curl http://127.0.0.1:11434/api/tags
@@ -443,7 +443,7 @@ JSON mit installiertem Modell.
 
 ---
 
-## Docker
+### Docker
 
 ```bash
 sudo docker ps
@@ -457,7 +457,7 @@ open-webui   Up
 
 ---
 
-## Open WebUI
+### Open WebUI
 
 Browser:
 
@@ -489,7 +489,7 @@ Erwartung:
 
 ## Geplante nächste Ausbaustufen
 
-## Stufe 1
+### Stufe 1
 Produktive Nutzung:
 
 - VS Code Integration
@@ -497,7 +497,7 @@ Produktive Nutzung:
 - Aider
 - DevOps-Unterstützung
 
-## Stufe 2
+### Stufe 2
 Lokale Wissensbasis:
 
 - Dokumente
@@ -505,14 +505,14 @@ Lokale Wissensbasis:
 - Markdown
 - Projektdokumentation
 
-## Stufe 3
+### Stufe 3
 Agenten:
 
 - kontrollierte Aktionen
 - Git Integration
 - Human Approval
 
-## Stufe 4
+### Stufe 4
 Homelab Ausbau:
 
 - Docker Compose
